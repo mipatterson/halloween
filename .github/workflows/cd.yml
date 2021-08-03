@@ -1,20 +1,20 @@
 name: Continuous Delivery
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   cd:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: main
       - name: Deploy
-        uses: akhileshns/heroku-deploy@v3.10.9
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_ACCOUNT_EMAIL}}
-          remote_branch: master
           healthcheck: ${{secrets.HEROKU_APP_HEALTHCHECK_URI}}
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
