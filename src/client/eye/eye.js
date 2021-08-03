@@ -1,7 +1,5 @@
 (function (win) {
 	const container = win.document.getElementById("eye-container");
-	const eyeId = "eye";
-	const eye = win.document.getElementById(eyeId);
 
 	function detectSide() {
 		const side = win.location.href.includes("right") ? "right" : "left";
@@ -12,15 +10,38 @@
 	const side = detectSide();
 
 	function blink() {
+		
 		container.classList.add("blink");
 		setTimeout(() => {
 			container.classList.remove("blink");
 		}, 1000);
 	}
 
+	function open() {
+		container.classList.remove("closed");
+		container.classList.remove("closing");
+		container.classList.add("opening");
+		setTimeout(() => {
+			container.classList.remove("opening");
+			container.classList.remove("open");
+		}, 1000);
+	}
+
+	function close() {
+		container.classList.remove("open");
+		container.classList.remove("opening");
+		container.classList.add("closing");
+		setTimeout(() => {
+			container.classList.remove("closing");
+			container.classList.remove("closed");
+		}, 1000);
+	}
+
 	const api = {
 		side,
 		blink,
+		open,
+		close,
 	};
 
 	const styles = {
@@ -45,7 +66,13 @@
 		styles[style].setup();
 	}
 
-	api.setStyle("basic");
+	api.show = function () {
+		container.classList.remove("hide");
+	}
+
+	api.hide = function () {
+		container.classList.add("hide");
+	}
 
 	win.eyeApi = api;
 }(window))
