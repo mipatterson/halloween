@@ -1,0 +1,24 @@
+:root {
+	--bg-color: #000000;
+}
+
+body {
+	margin: 0;
+	background-color: var(--bg-color);
+}
+
+#container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+}
+
+#eye-container {
+	flex-basis: 1;
+	flex-grow: 1;
+	flex-shrink: 1;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}

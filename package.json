@@ -1,0 +1,19 @@
+{
+  "name": "halloween",
+  "version": "1.0.0",
+  "description": "Halloween house monster eyes animation",
+  "main": "index.js",
+  "repository": "https://github.com/mipatterson/halloween.git",
+  "author": "Mike Patterson",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-send": "^5.0.1",
+    "nodemon": "^2.0.12",
+    "socket.io": "^4.1.3"
+  }
+}

@@ -1,0 +1,30 @@
+.red {
+	--eye-color: red;
+	--eye-size: 300px;
+
+	width: var(--eye-size);
+    height: var(--eye-size);
+
+	border-radius: 50%;
+    transform-origin: 50%;
+
+	align-self: center;
+
+	background: var(--eye-color);
+}
+
+#eye-container.blink .red {
+	animation-name: blink-red;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blink-red {
+    0%, 100% {
+		transform: scale(1, 1);
+    }
+	
+    50% {
+		transform: scale(1, .05);
+    }
+}
