@@ -1,7 +1,7 @@
 (function (win) {
 	let wakeLock;
 
-	function lock() {
+	async function lock() {
 		if (wakeLock) {
 			return;
 		}
@@ -13,7 +13,7 @@
 		console.log("Screen locked.");
 	}
 
-	function unlock() {
+	async function unlock() {
 		if (!wakeLock) {
 			return;
 		}
