@@ -1,4 +1,4 @@
-(function (win, communication, http, eye) {
+(function (win, communication, http, eye, lock) {
 	const api = {
 		communication,
 		eye,
@@ -16,6 +16,7 @@
 		if (state.enabled) {
 			eye.show();
 		}
+		lock.lock();
 	});
 
 	communication.on("enable", d => {
@@ -46,4 +47,4 @@
 	});
 
 	win.app = api;
-}(window, communicationApi, httpApi, eyeApi))
+}(window, communicationApi, httpApi, eyeApi, lockApi))
