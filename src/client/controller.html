@@ -1,24 +1,38 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="/controller/controller.css" />
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 		<title>Halloween</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎃</text></svg>">
 	</head>
 	<body>
-		<div id="container" class="hidden">
-			<h1><center>🎃</center></h1>
-			<h4>Enable</h4>
-			<label class="switch">
-				<input type="checkbox" id="enabled-input">
-				<span class="slider round"></span>
-			</label>
-			<h4>Mode</h4>
-			<select id="mode-select">
-				<option value="monster">Monster (Default)</option>
-				<option value="basic">White Circles</option>
-				<option value="basicred">Red Circles</option>
-			</select>
-		</div>
+		<section class="section">
+			<div class="container" id="container">
+				<h1 class="title">🎃 Halloween Eyes</h1>
+				<form>
+					<div class="field">
+						<label class="label">Enabled</label>
+						<div class="control">
+							<input type="checkbox" id="enabled-input">
+						</div>
+					</div>
+					<div class="field">
+						<label class="label">Mode</label>
+						<div class="control">
+							<div class="select is-large">
+								<select id="mode-select">
+									<option value="monster">Monster (Default)</option>
+									<option value="basic">White Circles</option>
+									<option value="basicred">Red Circles</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
 		<script type="text/javascript" src="/shared/websocket.js"></script>
 		<script type="text/javascript" src="/shared/communication.js"></script>
 		<script type="text/javascript" src="/shared/http.js"></script>
