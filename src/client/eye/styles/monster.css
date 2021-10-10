@@ -1,0 +1,144 @@
+.monster {
+	position: relative;
+	--open-rotation-val: 20deg;
+	--closed-rotation-val: 8deg;
+	--eyelid-open-translate-x: -17%; 
+	--eyelid-closed-translate-x: -17%;
+	--eyelid-closed-translate-y: -10%;
+	--iris-translate-x: 125%;
+}
+
+.left .monster {
+	--open-rotation: var(--open-rotation-val);
+	--closed-rotation: var(--closed-rotation-val);
+
+	--eyelid-open-translate-y: -105%;
+
+	--iris-translate-x: 250%;
+}
+
+.right .monster {
+	--open-rotation: calc(var(--open-rotation-val) * -1);
+	--closed-rotation: calc(var(--closed-rotation-val) * -1);
+
+	--eyelid-open-translate-y: -105%;
+
+	--iris-translate-x: 145%;
+}
+
+.monster .eyelid {
+	--eyelid-height: 600px;
+	--eyelid-width: 1500px;
+
+	position: absolute;
+
+	width: var(--eyelid-width);
+    height: var(--eyelid-height);
+
+    transform-origin: 50%;
+	transform: translate(var(--eyelid-open-translate-x), var(--eyelid-open-translate-y)) rotate(var(--open-rotation));
+
+	z-index: 10;
+
+	background: var(--bg-color);
+}
+
+.monster .sclera {
+	--sclera-color: yellow;
+	--sclera-height: 500;
+	--sclera-width: 1000px;
+
+	width: var(--sclera-width);
+    height: var(--sclera-height);
+
+	transform-origin: 50%;
+	transform: rotate(var(--open-rotation));
+
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	background: var(--sclera-color);
+}
+
+.monster .iris {
+	--iris-color: black;
+	--iris-height: 500px;
+	--iris-width: 200px;
+
+	position: absolute;
+
+	width: var(--iris-width);
+    height: var(--iris-height);
+
+	margin-left: auto;
+	margin-right: auto;
+
+    transform-origin: 50%;
+	transform: translate(var(--iris-translate-x), -120%);
+
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	z-index: 5;
+
+	background: var(--iris-color);
+}
+
+.monster .pupil {
+	--iris-color: white;
+	--iris-height: 200px;
+	--iris-width: 80px;
+
+	position: absolute;
+
+	width: var(--iris-width);
+    height: var(--iris-height);
+
+	margin-left: auto;
+	margin-right: auto;
+
+    transform-origin: 50%;
+	transform: translate(70%, 55%);
+
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+
+	z-index: 5;
+
+	background: var(--iris-color);
+}
+
+#eye-container.blink .monster .eyelid {
+	animation-name: blink-monster-eyelid;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blink-monster-eyelid {
+    0%, 100% {
+		transform: translate(var(--eyelid-open-translate-x), var(--eyelid-open-translate-y)) rotate(var(--open-rotation));
+    }
+
+    50% {
+		transform: translate(var(--eyelid-closed-translate-x), var(--eyelid-closed-translate-y)) rotate(var(--closed-rotation));
+    }
+}
+
+#eye-container.blink .monster .sclera {
+	animation-name: blink-monster-sclera;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blink-monster-sclera {
+    0%, 100% {
+		transform: rotate(var(--open-rotation)) scale(1, 1);
+    }
+
+    50% {
+		transform: rotate(var(--closed-rotation)) scale(1, 0);
+    }
+}

@@ -10,5 +10,5 @@ Halloween house monster eyes animation
 
 1. Start the server: `yarn start`
 2. Open two browser windows to the following URLs
-	- http://localhost:3002/eye/left
-	- http://localhost:3002/eye/right
+	- http://localhost:3002/left
+	- http://localhost:3002/right

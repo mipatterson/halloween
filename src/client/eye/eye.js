@@ -9,6 +9,8 @@
 
 	const side = detectSide();
 
+	container.classList.add(side);
+
 	function blink() {
 		
 		container.classList.add("blink");
@@ -56,6 +58,31 @@
 			setup: () => {
 				const eye = win.document.createElement("div");
 				eye.classList.add("red");
+				container.appendChild(eye);
+			},
+		},
+		monster: {
+			setup: () => {
+				// Setup eye
+				const eye = win.document.createElement("div");
+				eye.classList.add("monster");
+
+				const eyelid = win.document.createElement("div");
+				eyelid.classList.add("eyelid");
+				eye.appendChild(eyelid);
+
+				const sclera = win.document.createElement("div");
+				sclera.classList.add("sclera");
+				eye.appendChild(sclera);
+
+				const iris = win.document.createElement("div");
+				iris.classList.add("iris");
+				eye.appendChild(iris);
+
+				const pupil = win.document.createElement("div");
+				pupil.classList.add("pupil");
+				iris.appendChild(pupil);
+
 				container.appendChild(eye);
 			},
 		},

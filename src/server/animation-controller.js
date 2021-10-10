@@ -3,8 +3,8 @@ const Basic = require("./modes/basic.js");
 const state = {
 	enabled: true,
 	open: true,
-	mode: "basic",
-	style: "basic",
+	mode: "monster",
+	style: "monster",
 	blinkInterval: 3000,
 	leftSockets: [],
 	rightSockets: [],
@@ -59,8 +59,9 @@ module.exports = function (io) {
 	const modes = {
 		basic: new Basic(animationApi, { style: "basic", interval: state.blinkInterval }),
 		basicred: new Basic(animationApi, { style: "red", interval: state.blinkInterval }),
+		monster: new Basic(animationApi, { style: "monster", interval: state.blinkInterval }),
 	};
-	state.mode = "basic";
+	state.mode = "monster";
 	modes[state.mode].start();
 
 	function setMode(mode) {
