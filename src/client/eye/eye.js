@@ -39,6 +39,33 @@
 		}, 1000);
 	}
 
+	function setupMonsterEye(color) {
+		// Setup eye
+		const eye = win.document.createElement("div");
+		eye.classList.add("monster");
+
+		// Setup color
+		eye.classList.add(color);
+
+		const eyelid = win.document.createElement("div");
+		eyelid.classList.add("eyelid");
+		eye.appendChild(eyelid);
+
+		const sclera = win.document.createElement("div");
+		sclera.classList.add("sclera");
+		eye.appendChild(sclera);
+
+		const iris = win.document.createElement("div");
+		iris.classList.add("iris");
+		eye.appendChild(iris);
+
+		const pupil = win.document.createElement("div");
+		pupil.classList.add("pupil");
+		iris.appendChild(pupil);
+
+		container.appendChild(eye);
+	}
+
 	const api = {
 		side,
 		blink,
@@ -63,27 +90,12 @@
 		},
 		monster: {
 			setup: () => {
-				// Setup eye
-				const eye = win.document.createElement("div");
-				eye.classList.add("monster");
-
-				const eyelid = win.document.createElement("div");
-				eyelid.classList.add("eyelid");
-				eye.appendChild(eyelid);
-
-				const sclera = win.document.createElement("div");
-				sclera.classList.add("sclera");
-				eye.appendChild(sclera);
-
-				const iris = win.document.createElement("div");
-				iris.classList.add("iris");
-				eye.appendChild(iris);
-
-				const pupil = win.document.createElement("div");
-				pupil.classList.add("pupil");
-				iris.appendChild(pupil);
-
-				container.appendChild(eye);
+				setupMonsterEye("yellow");
+			},
+		},
+		monsterpurple: {
+			setup: () => {
+				setupMonsterEye("purple");
 			},
 		},
 	};

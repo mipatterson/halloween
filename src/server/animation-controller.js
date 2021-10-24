@@ -60,6 +60,7 @@ module.exports = function (io) {
 		basic: new Basic(animationApi, { style: "basic", interval: state.blinkInterval }),
 		basicred: new Basic(animationApi, { style: "red", interval: state.blinkInterval }),
 		monster: new Basic(animationApi, { style: "monster", interval: state.blinkInterval }),
+		monsterpurple: new Basic(animationApi, { style: "monsterpurple", interval: state.blinkInterval })
 	};
 	state.mode = "monster";
 	modes[state.mode].start();

@@ -2,7 +2,7 @@
 	position: relative;
 	--open-rotation-val: 20deg;
 	--closed-rotation-val: 8deg;
-	--eyelid-open-translate-x: -17%; 
+	--eyelid-open-translate-x: -17%;
 	--eyelid-closed-translate-x: -17%;
 	--eyelid-closed-translate-y: -10%;
 	--iris-translate-x: 125%;
@@ -59,6 +59,10 @@
 	border-top-right-radius: 0;
 
 	background: var(--sclera-color);
+}
+
+.monster.purple .sclera {
+	--sclera-color: rebeccapurple;
 }
 
 .monster .iris {
